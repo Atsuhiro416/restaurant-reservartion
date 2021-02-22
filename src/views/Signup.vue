@@ -40,7 +40,7 @@ export default {
       password: "",
       errorMessage: {
         email: "",
-        password: ""
+        password: this.$store.state.message.password,
       },
     };
   },
@@ -72,22 +72,22 @@ export default {
 </script>
 
 <style scoped>
-  #signup {
-    height: 100vh;
-    width: 100vw;
-    background: url(../assets/login-medium.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-  }
-  .middle-wrapper {
-    position: absolute;
-    height: 50vh;
-    width: 100vw;
-    top: 55%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+#signup {
+  height: 100vh;
+  width: 100vw;
+  background: url(../assets/login-medium.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.middle-wrapper {
+  position: absolute;
+  height: 50vh;
+  width: 100vw;
+  top: 55%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .eyecatch {

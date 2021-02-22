@@ -2,6 +2,8 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <p>{{ name }}</p>
+    <button @click="logout">ログアウト</button>
   </div>
 </template>
 
@@ -10,7 +12,16 @@
 import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  name: 'Home',
+  data() {
+    return {
+      name: "hello",
+    };
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch('logout');
+    }
+  },
   components: {
     HelloWorld
   }
