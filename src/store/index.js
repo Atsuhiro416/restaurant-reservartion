@@ -19,6 +19,9 @@ export default new Vuex.Store({
     },
   },
   getters: {
+    getUserEmail(state) {
+      return state.user.email
+    },
     emailMessage(state) {
       return state.message.email
     },
@@ -59,8 +62,17 @@ export default new Vuex.Store({
           console.log(error.response);
           return error.response;
         });
+      const responseUser = await axios.get(
+        "https://desolate-river-22304.herokuapp.com/api/user",
+        {
+          params: {
+            email: email,
+          },
+        }
+      );
       if (responseLogin.data.auth === true) {
         commit("auth", responseLogin.data.auth);
+        commit("user", responseUser.data.data[0])
       } else if (responseLogin.data.auth === false) {
         commit("getPasswordMessage", responseLogin.data.errorMessage);
         commit("getEmailMessage", null);

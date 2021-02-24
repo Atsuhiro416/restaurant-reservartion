@@ -6,6 +6,7 @@ import Login from '../views/Login.vue'
 import User from '../views/User.vue'
 import Favorite from '../views/Favorite.vue'
 import History from '../views/History.vue'
+import ChangePassword from '../views/ChangePassword.vue'
 import store from '../store'
 
 Vue.use(VueRouter)
@@ -49,6 +50,14 @@ const routes = [
     path: '/user',
     name: 'User',
     component: User,
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: '/change-password',
+    name: 'ChangePassword',
+    component: ChangePassword,
     meta: {
       requiresAuth: true,
     }
