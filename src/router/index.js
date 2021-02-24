@@ -3,6 +3,9 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Signup from '../views/Signup.vue'
 import Login from '../views/Login.vue'
+import User from '../views/User.vue'
+import Favorite from '../views/Favorite.vue'
+import History from '../views/History.vue'
 import store from '../store'
 
 Vue.use(VueRouter)
@@ -22,6 +25,30 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: Home,
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: '/favorite',
+    name: 'Favorite',
+    component: Favorite,
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: '/history',
+    name: 'History',
+    component: History,
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: '/user',
+    name: 'User',
+    component: User,
     meta: {
       requiresAuth: true,
     }

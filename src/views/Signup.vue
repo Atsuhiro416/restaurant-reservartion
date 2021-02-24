@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     auth() {
-      const url = "http://localhost:8000";
+      const url = "https://desolate-river-22304.herokuapp.com";
       axios
         .post(url + "/api/register", {
           email: this.email,

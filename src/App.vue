@@ -140,7 +140,6 @@ header {
   width: 100%;
   height: 100px;
   background-color: #fff;
-  /* border-bottom: 1px solid #000; */
   z-index: 500;
   padding: 10px 40px;
 }
