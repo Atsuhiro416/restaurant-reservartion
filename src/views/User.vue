@@ -5,7 +5,7 @@
       <h2>アカウント情報</h2>
       <p>メールアドレス：{{ userEmail }}</p>
       <button @click="$router.push('/change-password')">パスワードを再設定</button>
-  </div>
+    </div>
   </div>
 </template>
 

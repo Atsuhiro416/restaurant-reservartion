@@ -44,7 +44,10 @@ export default new Vuex.Store({
     },
     logout(state, payload) {
       state.auth = payload;
-    }
+    },
+    changeUserData(state, payload) {
+      state.user.password = payload;
+    },
   },
   actions: {
     async login({ commit }, { email, password }) {
@@ -85,6 +88,9 @@ export default new Vuex.Store({
       const responseLogout = await axios.post("https://desolate-river-22304.herokuapp.com/api/logout");
       commit("logout", responseLogout.data.auth);
       router.replace("/");
+    },
+    changeUserData({ commit }, { password }) {
+      commit("changeUserData", password);
     }
   },
   modules: {
