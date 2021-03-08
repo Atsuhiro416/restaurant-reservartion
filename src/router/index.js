@@ -1,13 +1,14 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Signup from '../views/Signup.vue'
-import Login from '../views/Login.vue'
-import User from '../views/User.vue'
-import Favorite from '../views/Favorite.vue'
-import History from '../views/History.vue'
-import ChangePassword from '../views/ChangePassword.vue'
-import store from '../store'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Home from '../views/Home.vue';
+import Signup from '../views/Signup.vue';
+import Login from '../views/Login.vue';
+import StoreRegister from '../views/StoreRegister.vue';
+import User from '../views/User.vue';
+import Favorite from '../views/Favorite.vue';
+import History from '../views/History.vue';
+import ChangePassword from '../views/ChangePassword.vue';
+import store from '../store';
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/signup',
     name: 'Signup',
     component: Signup
+  },
+  {
+    path: '/store-register',
+    name: 'StoreRegister',
+    component: StoreRegister
   },
   {
     path: '/home',
