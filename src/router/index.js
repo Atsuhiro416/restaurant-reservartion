@@ -8,6 +8,7 @@ import User from '../views/User.vue';
 import Favorite from '../views/Favorite.vue';
 import History from '../views/History.vue';
 import ChangePassword from '../views/ChangePassword.vue';
+import Store from '../views/Store.vue';
 import store from '../store';
 
 Vue.use(VueRouter)
@@ -69,8 +70,13 @@ const routes = [
     }
   },
   {
-    path: '/about',
-    name: 'About',
+    path: '/store/:id',
+    name: 'Store',
+    component: Store,
+    props: true,
+    meta: {
+      requiresAuth: true,
+    }
   }
 ]
 

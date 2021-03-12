@@ -1,7 +1,7 @@
 <template>
   <div id="store-card">
     <div class="store-list flex around flex-wrap">
-      <div class="store-card" v-for="(store, index) in stores" :key="store.id">
+      <div class="store-card" v-for="(store, index) in stores" :key="store.id" :id="store.id" @click="$router.push({ name: 'Store', params: { id: store.id } })">
         <div class="store-img" >
           <img :src="images[index]" alt="">
         </div>
@@ -53,6 +53,7 @@ export default {
   background-color: #f8f1f1;
   margin-bottom: 10vh;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .store-card:hover {
