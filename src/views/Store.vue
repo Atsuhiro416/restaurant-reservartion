@@ -8,9 +8,9 @@
       <div class="store-middle-wrapper flex around">
         <h2>{{ store.name }}</h2>
         <div class="store-user-actions flex between">
-          <div class="store-fav">
-            <font-awesome-icon icon="star" size="3x" class="star-color" />
-            <p>お気に入り追加</p>
+          <div class="store-fav" @click="favorite">
+            <font-awesome-icon icon="star" size="3x" :class="starColor()" />
+            <p>お気に入り{{ favoriteMessage }}</p>
           </div>
           <button @click="reservation">予約する</button>
         </div>
@@ -31,6 +31,8 @@ export default {
   data() {
     return {
       store: {},
+      isLike: null,
+      favoriteMessage: ""
     };
   },
   created() {
@@ -43,10 +45,50 @@ export default {
         .then(response => {
           this.store = response.data.data;
           console.log(response.data);
+          this.getFavorite();
         })
         .catch(error => {
           console.log(error.response);
         });
+    },
+    getFavorite() {
+      axios
+        .get("https://desolate-river-22304.herokuapp.com/api/like-exist/" + this.$store.state.user.id + '/' + this.id)
+        .then(response => {
+          this.isLike = response.data.data;
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.log(error.response);
+        })
+    },
+    favorite() {
+      axios
+        .post("https://desolate-river-22304.herokuapp.com/api/like",
+        {
+          user_id: this.$store.state.user.id,
+          store_id: this.id,
+        })
+        .then(response=> {
+          console.log(response.data);
+          this.getFavorite();
+          // this.$router.go({
+          //   path: this.$router.currentRoute.path,
+          //   force: true,
+          // });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    starColor() {
+      if(this.isLike === true) {
+        this.favoriteMessage = "登録済";
+        return "star-color";
+      } else if (this.isLike === false) {
+        this.favoriteMessage = "登録";
+        return "black-star";
+      }
     },
     reservation() {
       console.log("予約機能は未実装です");
@@ -86,11 +128,26 @@ export default {
 .store-fav {
   text-align: center;
   margin-right: 20px;
+  cursor: pointer;
 }
 
 .star-color {
   color: #ffa62b;
   opacity: .7;
+}
+
+.star-color:hover {
+  opacity: 1;
+}
+
+.black-star {
+  color: #000;
+  opacity: .6;
+}
+
+.black-star:hover {
+  color: #ffa62b;
+  opacity: .5;
 }
 
 .store-fav p {
