@@ -2,8 +2,6 @@
   <div id="store-card">
     <div class="store-list">
       <div class="store-card"
-      :id="id"
-
       @click="$router.push({ name: 'Store', params: { id: id } })">
         <div class="store-img" >
           <img :src="image" alt="">

@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <LoggedinHeader />
+    <Swiper />
     <div class="store-cards flex around flex-wrap">
       <StoreCard
       v-for="store in stores"
@@ -18,6 +19,7 @@
 import axios from 'axios';
 import LoggedinHeader from '../components/LoggedinHeader.vue'
 import StoreCard from '../components/StoreCard.vue'
+import Swiper from '../components/Swiper.vue'
 
 export default {
   data(){
@@ -45,6 +47,7 @@ export default {
   components: {
     LoggedinHeader,
     StoreCard,
+    Swiper,
   }
 }
 </script>
