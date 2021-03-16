@@ -1,6 +1,6 @@
 <template>
   <div id="favorite">
-    <LoggedinHeader></LoggedinHeader>
+    <LoggedinHeader />
     favorite
   </div>
 </template>

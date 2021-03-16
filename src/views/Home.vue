@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <LoggedinHeader></LoggedinHeader>
+    <LoggedinHeader />
     <StoreCard />
   </div>
 </template>

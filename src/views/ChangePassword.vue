@@ -1,6 +1,6 @@
 <template>
   <div id="change-password">
-    <LoggedinHeader></LoggedinHeader>
+    <LoggedinHeader />
     <div class="container">
       <h2>パスワード再設定</h2>
       <p>新しいパスワードを入力</p>

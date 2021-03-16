@@ -1,6 +1,6 @@
 <template>
   <div id="signup">
-    <HeaderAuth></HeaderAuth>
+    <HeaderAuth />
     <div class="middle-wrapper flex around">
       <div class="eyecatch">
         <p>自分だけの<br>お気に入りを<br>見つけよう</p>

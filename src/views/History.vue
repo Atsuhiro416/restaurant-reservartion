@@ -1,6 +1,6 @@
 <template>
   <div id="history">
-    <LoggedinHeader></LoggedinHeader>
+    <LoggedinHeader />
     history
   </div>
 </template>

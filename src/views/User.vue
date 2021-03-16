@@ -1,6 +1,6 @@
 <template>
   <div id="user">
-    <LoggedinHeader></LoggedinHeader>
+    <LoggedinHeader />
     <div class="container">
       <h2>アカウント情報</h2>
       <p>メールアドレス：{{ userEmail }}</p>
