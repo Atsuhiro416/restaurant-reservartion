@@ -159,4 +159,54 @@ export default {
   width: 45vw;
   margin: 10vh auto;
 }
+
+@media screen and (max-width: 1024px) {
+  .store-container {
+    width: 100vw;
+  }
+  .store-img img {
+    width: 80vw;
+    height: auto;
+  }
+  .store-middle-wrapper h2 {
+    margin-top: 0;
+  }
+  .store-user-actions button {
+    width: 150px;
+    height: 70px;
+  }
+  .store-info {
+    margin: 5vh auto;
+    width: 75vw;
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .store-container {
+    margin-top: 0;
+  }
+  .store-img img {
+    width: 100vw;
+    height: auto;
+  }
+  .store-middle-wrapper {
+    display: block;
+  }
+  .store-middle-wrapper h2 {
+    text-align: center;
+  }
+  .store-user-actions {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    margin-top: 20px;
+  }
+  .store-user-actions button {
+    width: 150px;
+    font-size: 20px;
+  }
+  .storeinfo {
+    font-size: 20px;
+  }
+}
 </style>
