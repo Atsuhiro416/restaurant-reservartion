@@ -1,43 +1,24 @@
 <template>
   <div id="store-card">
-    <div class="store-list flex around flex-wrap">
-      <div class="store-card" v-for="(store, index) in stores" :key="store.id" :id="store.id" @click="$router.push({ name: 'Store', params: { id: store.id } })">
+    <div class="store-list">
+      <div class="store-card"
+      :id="id"
+
+      @click="$router.push({ name: 'Store', params: { id: id } })">
         <div class="store-img" >
-          <img :src="images[index]" alt="">
+          <img :src="image" alt="">
         </div>
-        <p class="store-name">{{ store.name }}</p>
-        <p class="store-category">{{ store.category }}</p>
+        <p class="store-name">{{ name }}</p>
+        <p class="store-category">{{ category }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
 
 export default {
-  data() {
-    return {
-      stores: {},
-      images: [require("../assets/niku.jpg"), require("../assets/bar.jpg"), require("../assets/sushi.jpg")]
-    };
-  },
-  methods: {
-    getStores() {
-      axios
-        .get("https://desolate-river-22304.herokuapp.com/api/store")
-        .then(response => {
-          this.stores = response.data.data;
-          console.log(response.data.data);
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    },
-  },
-  created() {
-    this.getStores();
-  }
+  props: ["name", "category", "id", "image"],
 }
 </script>
 
