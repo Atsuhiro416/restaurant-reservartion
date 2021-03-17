@@ -38,6 +38,9 @@ export default {
   created() {
     this.getStore();
   },
+  mounted() {
+    this.history();
+  },
   methods: {
     getStore() {
       axios
@@ -72,10 +75,6 @@ export default {
         .then(response=> {
           console.log(response.data);
           this.getFavorite();
-          // this.$router.go({
-          //   path: this.$router.currentRoute.path,
-          //   force: true,
-          // });
         })
         .catch(error => {
           console.log(error);
@@ -92,6 +91,20 @@ export default {
     },
     reservation() {
       console.log("予約機能は未実装です");
+    },
+    history() {
+      axios
+        .post("https://desolate-river-22304.herokuapp.com/api/history",
+        {
+          user_id: this.$store.state.user.id,
+          store_id: this.id,
+        })
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.log(error.response);
+        });
     }
   },
   components: {
