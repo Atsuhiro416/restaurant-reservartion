@@ -2,9 +2,12 @@
   <div class="home">
     <LoggedinHeader />
     <Swiper />
+    <div class="search">
+      <input type="text" v-model="keyword" placeholder="探す..." >
+    </div>
     <div class="store-cards flex around flex-wrap">
       <StoreCard
-      v-for="store in stores"
+      v-for="store in filteredStores"
       :key="store.id"
       :name="store.name"
       :category="store.category"
@@ -24,6 +27,7 @@ import Swiper from '../components/Swiper.vue'
 export default {
   data(){
     return {
+      keyword: "",
       stores: {},
       image: require("../assets/washoku.jpg"),
     };
@@ -44,6 +48,19 @@ export default {
   created() {
     this.getStores();
   },
+  computed: {
+    filteredStores() {
+      const storesArray = [];
+      for(const i in this.stores) {
+        const store = this.stores[i];
+        if(store.name.indexOf(this.keyword) !== -1 ||
+            store.category.indexOf(this.keyword) !== -1) {
+              storesArray.push(store);
+            }
+      }
+      return storesArray;
+    },
+  },
   components: {
     LoggedinHeader,
     StoreCard,
@@ -53,5 +70,30 @@ export default {
 </script>
 
 <style scoped>
+.search {
+  width: 20vw;
+  margin: 10vh auto;
+  position: relative;
+}
 
+.search input {
+  width: 100%;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 1024px) {
+
+  .search {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .search {
+    width: 80vw;
+  }
+}
 </style>
