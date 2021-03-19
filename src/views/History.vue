@@ -54,6 +54,7 @@ export default {
 h2 {
   font-size: 200%;
   text-align: center;
-  padding-top: 150px;
+  margin-top: 150px;
+  margin-bottom: 5vh;
 }
 </style>
